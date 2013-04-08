@@ -39,3 +39,4 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem 'nokogiri'
 gem 'mechanize'
+gem "haml"
