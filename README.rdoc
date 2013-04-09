@@ -1,9 +1,9 @@
 == README
 
-"Weather" is a simple parser written as a test task.
+"Weather" is a simple parser, my test task.
 
 
-= Configuration:
+Configuration:
 
 * Ryby 2.0.0p0
 
@@ -17,10 +17,10 @@
 
 * Nokogiri 1.5.9 and Mechanize 2.6.0
 
-* some other fancy gems...
+* some other fancy gems... and a lot of hindu code
 
 
-= Workflow:
+Workflow:
 
 * User enters the city name
 
@@ -29,3 +29,6 @@
 * when answer is correct, main#parse parses the temperature and precipitation chance and save it to the database, as well as user session_id
 
 * and index page shows user his queries, depending on his cookies
+
+
+Thanks for reading!
