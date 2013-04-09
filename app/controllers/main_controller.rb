@@ -17,17 +17,17 @@ class MainController < ApplicationController
     form = agent.page.forms.first
     form.search_city = city
     form.submit
-    if agent.page.uri.to_s =~ /search_city/     # add OR something else on agent.page
-      flash[:notice] = "город #{city} еще не построили, либо sinoptik.ua не знает о нем"
-      redirect_to action: 'index'
-    else
+    if CGI::unescape(agent.page.uri.to_s) =~ /погода-/ && CGI::unescape(agent.page.uri.to_s) !~ /search_city/
       parse(agent)
+    else
+      flash[:notice] = "Город #{city} еще не построили, либо Sinoptik.ua не знает о нем."
+      redirect_to action: 'index'
     end
   end
 
   def parse(agent)
     city = City.new
-    city.name = CGI::unescape(agent.page.uri.to_s).split("-").last.mb_chars.capitalize.to_s
+    city.name = agent.page.search(".cityNameShort strong").text
     city.min_t = agent.page.search(".min span").text.split("°")
     city.max_t = agent.page.search(".max span").text.split("°")
     city.session_id = session[:session_id]
@@ -44,10 +44,10 @@ class MainController < ApplicationController
     city.precip_chance = week_chance
 
     if city.save
-      flash[:notice] = "бд обновлена"
+      flash[:notice] = "Город найден и добавлен в базу данных."
       redirect_to action: 'index'
     else
-      flash[:notice] = "ошибка при добавлении в БД"
+      flash[:notice] = "С названием города что-то не так. Нужен баг репорт."
       redirect_to action: 'index'
     end
   end
