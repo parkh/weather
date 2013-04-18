@@ -1,8 +1,14 @@
 Weather::Application.routes.draw do
 
+  get 'sign_up' => 'users#new', as: 'sign_up'
+  get "log_out" => "sessions#destroy", as: "log_out"
+  get "log_in" => "sessions#new", as: "log_in"
+  resources :sessions
+  resources :users
+
   root to: 'main#index'
 
-  get 'main/search'
+  get 'sources/search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

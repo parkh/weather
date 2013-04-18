@@ -5,7 +5,8 @@ class CreateCities < ActiveRecord::Migration
       t.text :min_t
       t.text :max_t
       t.text :precip_chance
-      t.string :session_id
+      t.integer :user_id
+
       t.timestamps
     end
   end

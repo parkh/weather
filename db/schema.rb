@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130404093826) do
+ActiveRecord::Schema.define(version: 20130413180904) do
 
   create_table "cities", force: true do |t|
     t.string   "name"
     t.text     "min_t"
     t.text     "max_t"
     t.text     "precip_chance"
-    t.string   "session_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

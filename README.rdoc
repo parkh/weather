@@ -17,7 +17,7 @@ Configuration:
 
 * Nokogiri 1.5.9 and Mechanize 2.6.0
 
-* some other fancy gems... and a lot of hindu code
+* some other fancy gems... and a lot of spaghetti code
 
 
 Workflow:
