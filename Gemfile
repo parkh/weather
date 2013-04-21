@@ -44,3 +44,12 @@ gem 'nokogiri'
 gem 'mechanize'
 gem 'haml'
 gem 'haml-rails'
+
+gem 'rspec-rails', group: [:test, :development]
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+end
+
+gem 'rb-inotify', '~> 0.9'

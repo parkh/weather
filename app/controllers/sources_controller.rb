@@ -17,7 +17,7 @@ class SourcesController < ApplicationController
         parse_meteo(city_name)
       end
     else
-      flash[:notice] = "Город #{city_name} еще не построили, либо ни Sinoptik.ua, ни Meteo.ua пока не знают о нем."
+      flash[:notice] = "Город #{city_name} еще не построили, либо парсируемый сайт пока не знает о нем."
       redirect_to controller: 'main', action: 'index'
     end
   end

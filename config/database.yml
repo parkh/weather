@@ -25,8 +25,8 @@ test:
   encoding: utf8
   database: weather_test
   pool: 5
-  username: root
-  password:
+  username: weather
+  password: gjujlf
   socket: /var/run/mysqld/mysqld.sock
 
 production:

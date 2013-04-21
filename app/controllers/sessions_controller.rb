@@ -6,16 +6,16 @@ class SessionsController < ApplicationController
   	user = User.authenticate(params[:name], params[:password])
   	if user
   	  session[:user_id] = user.id
-  	  redirect_to root_path, notice: 'Logged in!'
+  	  redirect_to root_path, notice: 'Залогинились!'
   	else
-  	  flash.now.alert = 'Invalid name or password'
+  	  flash.now.alert = 'Нет такого пользователя!'
   	  render 'new'
   	end
   end
 
   def destroy
   	session[:user_id] = nil
-  	redirect_to root_path, notice: 'Logged out'
+  	redirect_to root_path, notice: 'Отлогинились...'
   end
 
 end

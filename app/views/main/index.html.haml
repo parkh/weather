@@ -1,10 +1,11 @@
-.row
-  .span6.offset3
-    = form_tag sources_search_path, method: "get", class: 'form-inline' do
-      = label_tag :search, "Погода в:"
-      = text_field_tag :search, params[:search], placeholder: "название города", class: "input-xlarge"
-      = submit_tag "sinoptik", class: 'btn btn-primary'
-      = submit_tag "meteo", class: 'btn btn-primary'
+- if current_user
+  .row
+    .span6.offset3
+      = form_tag sources_search_path, method: "get", class: 'form-inline' do
+        = label_tag :search, "Погода в:"
+        = text_field_tag :search, params[:search], placeholder: "название города", class: "input-xlarge"
+        = submit_tag "sinoptik", class: 'btn btn-primary'
+        = submit_tag "meteo", class: 'btn btn-primary'
 
 - if @cities != []
   %table.table.table-striped

@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :encrypt_password
 
-  validates_uniqueness_of :name
-  validates_presence_of :name
+  validates :name, :uniqueness => true, :presence => true
 
   def self.authenticate(name, password)
   	user = find_by_name(name)
