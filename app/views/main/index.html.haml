@@ -6,6 +6,8 @@
         = text_field_tag :search, params[:search], placeholder: "название города", class: "input-xlarge"
         = submit_tag "sinoptik", class: 'btn btn-primary'
         = submit_tag "meteo", class: 'btn btn-primary'
+- else
+  %p.lead.text-center= "Пожалуйста залогиньтесь или зарегистрируйтесь."
 
 - if @cities != []
   %table.table.table-striped

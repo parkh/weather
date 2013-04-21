@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path, notice: 'user created'
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: 'Зарегистрировались и залогинились!'
     else
       render 'new'
     end
